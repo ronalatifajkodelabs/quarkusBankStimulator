@@ -3,6 +3,7 @@ package quarkus.bank.stimulator.services;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 import quarkus.bank.stimulator.DTOs.BankAccountRegistrationDTO;
+import quarkus.bank.stimulator.DTOs.FilterParameters;
 import quarkus.bank.stimulator.accounts.BankAccount;
 import quarkus.bank.stimulator.accounts.CheckingBankAccount;
 import quarkus.bank.stimulator.accounts.SavingsBankAccount;
@@ -13,6 +14,8 @@ import quarkus.bank.stimulator.users.BankAccountHolder;
 import quarkus.bank.stimulator.utils.CustomResponse;
 
 import java.util.*;
+
+import static quarkus.bank.stimulator.utils.Util.validate;
 
 @ApplicationScoped
 public class BankAccountService {
@@ -59,8 +62,7 @@ public class BankAccountService {
                     .status(Response.Status.CREATED)
                     .message("Savings bank account added successfully")
                     .build();
-        }
-        else{
+        } else {
             return CustomResponse.builder()
                     .data(null)
                     .status(Response.Status.BAD_REQUEST)
@@ -164,19 +166,12 @@ public class BankAccountService {
                 .toList();
     }
 
-    public CustomResponse getBankAccounts(String orderBy, String orderType, int limit, AccountType accountType) {
-        if (orderType == null || (!orderType.equals("asc") && !orderType.equals("desc"))) {
-            orderType = "asc";
-        }
-        if (accountType == null || (!accountType.equals(AccountType.CHECKING) && !accountType.equals(AccountType.SAVINGS))) {
-            accountType = AccountType.SAVINGS;
-        }
-        if (orderBy == null || (!orderBy.equals("balanceAmount") && !orderBy.equals("accountNumber") && !orderBy.equals("income"))) {
-            orderBy = "accountHolder";
-        }
-        if (limit <= 0) {
-            limit = 10;
-        }
+    public CustomResponse getBankAccounts(FilterParameters filterParameters) {
+        FilterParameters validatedFilterParameters = validate(filterParameters);
+        String orderBy = validatedFilterParameters.orderBy;
+        String orderType = validatedFilterParameters.orderType;
+        int limit = Integer.parseInt(validatedFilterParameters.limit);
+        AccountType accountType = AccountType.valueOf(validatedFilterParameters.accountType);
         if (orderBy.equals("income")) {
             return CustomResponse.builder()
                     .data(getTopLimitPayingAccountsByType(accountType, limit))
@@ -184,34 +179,14 @@ public class BankAccountService {
                     .message("Bank accounts fetched successfully")
                     .build();
         }
-        String finalOrderType = orderType;
-        AccountType finalAccountType = accountType;
-        String finalOrderBy = orderBy;
-        List<BankAccount> listOfBankAccountsToBeReturned = DB.bankAccounts.stream().filter(
-                        bankAccount -> bankAccount.getAccountType().equals(finalAccountType)
-                )
-                .sorted((bankAccount1, bankAccount2) -> {
-                    switch (finalOrderBy) {
-                        case "balanceAmount":
-                            if (finalOrderType.equals("asc")) {
-                                return Double.compare(bankAccount1.getBalanceAmount(), bankAccount2.getBalanceAmount());
-                            } else {
-                                return Double.compare(bankAccount2.getBalanceAmount(), bankAccount1.getBalanceAmount());
-                            }
-                        case "accountNumber":
-                            if (finalOrderType.equals("asc")) {
-                                return bankAccount1.getAccountNumber().compareTo(bankAccount2.getAccountNumber());
-                            } else {
-                                return bankAccount2.getAccountNumber().compareTo(bankAccount1.getAccountNumber());
-                            }
-                        default:
-                            if (finalOrderType.equals("asc")) {
-                                return bankAccount1.getAccountHolder().getFirstName().compareTo(bankAccount2.getAccountHolder().getFirstName());
-                            } else {
-                                return bankAccount2.getAccountHolder().getFirstName().compareTo(bankAccount1.getAccountHolder().getFirstName());
-                            }
-                    }
-
+        List<BankAccount> listOfBankAccountsToBeReturned = DB.bankAccounts.stream().filter(bankAccount -> bankAccount.getAccountType().equals(accountType))
+                .sorted((bankAccount1, bankAccount2) -> switch (orderBy) {
+                    case "balanceAmount" ->
+                            orderType.equals("ASC") ? Double.compare(bankAccount1.getBalanceAmount(), bankAccount2.getBalanceAmount()) : Double.compare(bankAccount2.getBalanceAmount(), bankAccount1.getBalanceAmount());
+                    case "accountNumber" ->
+                            orderType.equals("ASC") ? bankAccount1.getAccountNumber().compareTo(bankAccount2.getAccountNumber()) : bankAccount2.getAccountNumber().compareTo(bankAccount1.getAccountNumber());
+                    default ->
+                            orderType.equals("ASC") ? bankAccount1.getAccountHolder().getFirstName().compareTo(bankAccount2.getAccountHolder().getFirstName()) : bankAccount2.getAccountHolder().getFirstName().compareTo(bankAccount1.getAccountHolder().getFirstName());
                 })
                 .limit(limit)
                 .toList();

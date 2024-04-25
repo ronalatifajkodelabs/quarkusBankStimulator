@@ -3,10 +3,9 @@ package quarkus.bank.stimulator.resource;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.jboss.resteasy.reactive.RestQuery;
 import quarkus.bank.stimulator.DTOs.BankAccountRegistrationDTO;
+import quarkus.bank.stimulator.DTOs.FilterParameters;
 import quarkus.bank.stimulator.accounts.SavingsBankAccount;
-import quarkus.bank.stimulator.enums.AccountType;
 import quarkus.bank.stimulator.services.BankAccountService;
 import quarkus.bank.stimulator.utils.CustomResponse;
 
@@ -53,18 +52,7 @@ public class BankAccountsController {
     @GET
     @Path("/filters")
     public CustomResponse getBankAccounts(@BeanParam FilterParameters filterParameters) {
-        return bankAccountsService.getBankAccounts(filterParameters.orderBy, filterParameters.orderType, filterParameters.limit, filterParameters.accountType);
-    }
-
-    public static class FilterParameters {
-        @RestQuery("orderBy")
-        public String orderBy;
-        @RestQuery("orderType")
-        public String orderType;
-        @RestQuery("limit")
-        public int limit;
-        @RestQuery("accountType")
-        public AccountType accountType;
+        return bankAccountsService.getBankAccounts(filterParameters);
     }
 
 }
