@@ -1,0 +1,32 @@
+[
+  {
+    "firstName": "Cassandra",
+    "lastName": "Moore",
+    "email": "Cassandra41@hotmail.com",
+    "phoneNumber": "360-157-0330"
+  },
+  {
+    "firstName": "Donnie",
+    "lastName": "Jacobs",
+    "email": "Donnie7@gmail.com",
+    "phoneNumber": "898-005-4680"
+  },
+  {
+    "firstName": "Gary",
+    "lastName": "Jast",
+    "email": "Gary46@hotmail.com",
+    "phoneNumber": "390-643-8868"
+  },
+  {
+    "firstName": "Ray",
+    "lastName": "Conn",
+    "email": "Ray_Conn44@hotmail.com",
+    "phoneNumber": "582-510-1976"
+  },
+  {
+    "firstName": "Linda",
+    "lastName": "Romaguera",
+    "email": "Linda_Romaguera82@yahoo.com",
+    "phoneNumber": "858-528-3948"
+  }
+]

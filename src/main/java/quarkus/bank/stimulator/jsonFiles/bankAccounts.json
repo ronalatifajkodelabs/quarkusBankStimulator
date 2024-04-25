@@ -1,0 +1,153 @@
+[
+  {
+    "accountNumber": "KM3474065515931294812609625",
+    "accountHolder": {
+      "firstName": "Brittany",
+      "lastName": "Hegmann",
+      "email": "Brittany.Hegmann47@yahoo.com",
+      "phoneNumber": "329-675-8694"
+    },
+    "balanceAmount": 27422.36,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2023-06-21T09:37:08.966Z",
+    "minimumBalance": 44.87
+  },
+  {
+    "accountNumber": "ME43866654030989286926",
+    "accountHolder": {
+      "firstName": "Julie",
+      "lastName": "Stroman",
+      "email": "Julie.Stroman@hotmail.com",
+      "phoneNumber": "781-284-8391"
+    },
+    "balanceAmount": 88602.22,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2023-08-02T15:04:11.384Z",
+    "minimumBalance": 59.62
+  },
+  {
+    "accountNumber": "NI93XNZP622262942771193807903349",
+    "accountHolder": {
+      "firstName": "Orville",
+      "lastName": "Reynolds",
+      "email": "Orville.Reynolds79@yahoo.com",
+      "phoneNumber": "525-943-8207"
+    },
+    "balanceAmount": 27467.99,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2023-01-14T17:36:49.470Z",
+    "minimumBalance": 54.97
+  },
+  {
+    "accountNumber": "MK10554OTVMLK9Y9398",
+    "accountHolder": {
+      "firstName": "Ray",
+      "lastName": "Williamson",
+      "email": "Ray.Williamson90@hotmail.com",
+      "phoneNumber": "988-688-9424"
+    },
+    "balanceAmount": 18756.41,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2023-04-20T07:15:02.543Z",
+    "minimumBalance": 38.37
+  },
+  {
+    "accountNumber": "PK34GGE32819868082184029",
+    "accountHolder": {
+      "firstName": "Gregg",
+      "lastName": "Wunsch",
+      "email": "Gregg_Wunsch6@hotmail.com",
+      "phoneNumber": "189-198-5688"
+    },
+    "balanceAmount": 14,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2022-11-23T20:34:28.318Z",
+    "minimumBalance": 13.18
+  },
+  {
+    "accountNumber": "ST63671164891069439182863",
+    "accountHolder": {
+      "firstName": "Lillian",
+      "lastName": "Pfeffer",
+      "email": "Lillian.Pfeffer@yahoo.com",
+      "phoneNumber": "267-520-4478"
+    },
+    "balanceAmount": 57501.26,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2022-10-16T15:46:37.530Z",
+    "minimumBalance": 14.98
+  },
+  {
+    "accountNumber": "SK7163895771251219181947",
+    "accountHolder": {
+      "firstName": "Winifred",
+      "lastName": "Zieme",
+      "email": "Winifred50@yahoo.com",
+      "phoneNumber": "695-423-4994"
+    },
+    "balanceAmount": 140168.81,
+    "accountType": "SAVINGS",
+    "pausedMonthlyBillingsUntil": "2023-05-02T06:40:47.750Z",
+    "minimumBalance": 18.87
+  },
+  {
+    "accountNumber": "GB51ZGFE89240929190123",
+    "accountHolder": {
+      "firstName": "Bobbie",
+      "lastName": "Reichel",
+      "email": "Bobbie8@hotmail.com",
+      "phoneNumber": "335-910-9575"
+    },
+    "balanceAmount": 0.0,
+    "accountType": "CHECKING",
+    "pausedMonthlyBillingsUntil": "2024-02-23T05:15:10.102Z"
+  },
+  {
+    "accountNumber": "DZ4532600903476430645140",
+    "accountHolder": {
+      "firstName": "Armando",
+      "lastName": "Streich",
+      "email": "Armando_Streich@yahoo.com",
+      "phoneNumber": "349-215-3335"
+    },
+    "balanceAmount": 98217.7,
+    "accountType": "CHECKING",
+    "pausedMonthlyBillingsUntil": "2023-01-08T23:18:39.815Z"
+  },
+  {
+    "accountNumber": "BH03YMQIL3JXCX5B8P0211",
+    "accountHolder": {
+      "firstName": "Leon",
+      "lastName": "Hill",
+      "email": "Leon54@gmail.com",
+      "phoneNumber": "050-689-3541"
+    },
+    "balanceAmount": 139048.4,
+    "accountType": "CHECKING",
+    "pausedMonthlyBillingsUntil": "2023-11-07T16:00:21.857Z"
+  },
+  {
+    "accountNumber": "KM1462117693938373370957318",
+    "accountHolder": {
+      "firstName": "Brittany",
+      "lastName": "Hegmann",
+      "email": "Brittany.Hegmann47@yahoo.com",
+      "phoneNumber": "329-675-8694"
+    },
+    "balanceAmount": 0.0,
+    "accountType": "CHECKING",
+    "pausedMonthlyBillingsUntil": "2023-10-11T10:52:08.379Z"
+  },
+  {
+    "accountNumber": "NL66ORMP5130898786",
+    "accountHolder": {
+      "firstName": "Julie",
+      "lastName": "Stroman",
+      "email": "Julie.Stroman@hotmail.com",
+      "phoneNumber": "781-284-8391"
+    },
+    "balanceAmount": 141770.9,
+    "accountType": "CHECKING",
+    "pausedMonthlyBillingsUntil": "2023-03-14T22:59:54.993Z"
+  }
+]
