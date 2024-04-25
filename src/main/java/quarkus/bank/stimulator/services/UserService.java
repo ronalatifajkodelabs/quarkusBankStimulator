@@ -43,7 +43,7 @@ public class UserService {
     }
 
     public CustomResponse deleteUser(String firstName, String lastName) {
-        BankUser bankUser = (BankUser) getUserResponse(firstName, lastName).getData();
+        BankUser bankUser = getUser(firstName, lastName);
         if (bankUser == null) {
             return CustomResponse.builder()
                     .data(null)
@@ -63,7 +63,11 @@ public class UserService {
 
         BankUser bankUser = getUser(firstName, lastName);
         if (bankUser == null) {
-            return null;
+            return CustomResponse.builder()
+                    .data(null)
+                    .status(Response.Status.NOT_FOUND)
+                    .message("User not found")
+                    .build();
         }
         bankUser.setFirstName(bankUserCloud.getFirstName() == null ? bankUser.getFirstName() : bankUserCloud.getFirstName());
         bankUser.setLastName(bankUserCloud.getLastName() == null ? bankUser.getLastName() : bankUserCloud.getLastName());
