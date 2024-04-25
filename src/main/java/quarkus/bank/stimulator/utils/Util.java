@@ -31,14 +31,10 @@ public class Util {
         } catch (IllegalArgumentException e) {
             filterParameters.accountType = AccountType.SAVINGS.toString();
         }
-        if (orderBy == null) {
-            filterParameters.orderBy = "accountHolder";
-        } else if (!(orderBy.equals("balanceAmount") || orderBy.equals("accountNumber") || orderBy.equals("income"))) {
+        if (!(orderBy.equals("balanceAmount") || orderBy.equals("accountNumber") || orderBy.equals("income"))) {
             filterParameters.orderBy = "accountHolder";
         }
-        if (orderType == null) {
-            filterParameters.orderType = "ASC";
-        } else if (!(orderType.equals("ASC") || orderType.equals("DESC"))) {
+        if (!(orderType.equals("ASC") || orderType.equals("DESC"))) {
             filterParameters.orderType = "ASC";
         }
         return filterParameters;
